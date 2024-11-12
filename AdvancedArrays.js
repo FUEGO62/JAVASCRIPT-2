@@ -102,6 +102,34 @@ function getHealthySnacks(){
 
 getHealthySnacks();
 
+function filterCostsLessThan100() {
 
+    let result = []
+    let resultTotalCosts = []
 
-module.exports = {multiply,isGreaterThanTwo,addTwo,isGreaterThanSeventy,addFive,square,distribute,timeOfClass,getTotalCost,gradingSystem};
+    const orders = [
+        {id: 1, items: [{price: 25, quantity: 2}, {price: 15, quantity: 3}]},
+        {id: 2, items: [{price: 100, quantity: 1}, {price: 25, quantity: 2}]},
+        {id: 3, items: [{price: 30, quantity: 1}]},
+    ];
+
+    let totalCost = 0;
+   for(let i = 0; i < orders.length; i++){
+       for (j = 0; j < orders[i].items.length; j++){
+           totalCost += orders[i].items[j].price * orders[i].items[j].quantity;
+       }
+
+       if(totalCost <= 100){
+           result.push(orders[i]);
+           resultTotalCosts.push(totalCost);
+       }
+       totalCost = 0;
+   }
+   let summary ={
+       orders: result,
+       correspondingTotalCosts: resultTotalCosts
+   }
+   return summary
+}
+
+module.exports = {multiply,isGreaterThanTwo,addTwo,isGreaterThanSeventy,addFive,square,distribute,timeOfClass,getTotalCost,gradingSystem,filterCostsLessThan100};
