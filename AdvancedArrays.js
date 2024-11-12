@@ -132,4 +132,25 @@ function filterCostsLessThan100() {
    return summary
 }
 
-module.exports = {multiply,isGreaterThanTwo,addTwo,isGreaterThanSeventy,addFive,square,distribute,timeOfClass,getTotalCost,gradingSystem,filterCostsLessThan100};
+function discountedPrices(){
+    let result = []
+
+    const products = [
+        { name: "Laptop", price: 1200 },
+        { name: "Phone", price: 600 },
+        { name: "Mouse", price: 25 },
+        { name: "Monitor", price: 200 }
+        ]
+    for(let item of products){
+        if(item.price >50){
+            let object = {
+                name: item.name, originalPrice:item.price, discountedPrice : 0.9*(item.price)
+            }
+            result.push(object);
+        }
+    }
+
+    return result;
+}
+
+module.exports = {multiply,isGreaterThanTwo,addTwo,isGreaterThanSeventy,addFive,square,distribute,timeOfClass,getTotalCost,gradingSystem,filterCostsLessThan100,discountedPrices};

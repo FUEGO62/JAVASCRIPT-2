@@ -1,5 +1,5 @@
 
-const {multiply,isGreaterThanTwo,addTwo,isGreaterThanSeventy,addFive,square,distribute,timeOfClass,getTotalCost,gradingSystem,filterCostsLessThan100} = require("./AdvancedArrays")
+const {multiply,isGreaterThanTwo,addTwo,isGreaterThanSeventy,addFive,square,distribute,timeOfClass,getTotalCost,gradingSystem,filterCostsLessThan100,discountedPrices} = require("./AdvancedArrays")
 
 test("multiply each element by 2",()=>{
     const array = [1,2,3];
@@ -59,4 +59,13 @@ test("costs less than $100",()=>{
         correspondingTotalCosts: [95,30]
     }
     expect(filterCostsLessThan100()).toEqual(expected);
+})
+
+test("discounted prices",()=>{
+    const expected = [
+        { name: "Laptop", originalPrice: 1200 ,discountedPrice:1080 },
+        { name: "Phone", originalPrice: 600 ,discountedPrice:540},
+        { name: "Monitor", originalPrice: 200 ,discountedPrice:180}
+    ]
+    expect(expected).toEqual(discountedPrices())
 })
