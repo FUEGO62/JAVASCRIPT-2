@@ -38,7 +38,19 @@ function square(arr){
     return result;
 }
 
+function distribute(arr){
+    for(const item of arr){
+        console.log(item+"!");
+        console.log("This book belongs to you");
+    }
+}
+
+
+function timeOfClass(arr){
+    let result = arr.filter((time)=>time.charAt(time.length-2)==='P');
+    return result;
+}
 
 
 
-module.exports = {multiply,isGreaterThanTwo,addTwo};
+module.exports = {multiply,isGreaterThanTwo,addTwo,isGreaterThanSeventy,addFive,square,distribute,timeOfClass};
