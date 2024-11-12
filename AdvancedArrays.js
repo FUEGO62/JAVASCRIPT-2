@@ -45,12 +45,63 @@ function distribute(arr){
     }
 }
 
-
 function timeOfClass(arr){
     let result = arr.filter((time)=>time.charAt(time.length-2)==='P');
     return result;
 }
 
+function getTotalCost(){
+    let total = 0;
+    const costs = { "groceries": 150,
+                        "dining out": 100,
+                        "transportation": 50,
+                        "entertainment": 80
+                        }
+
+    for(let item in costs){
+        total +=  costs[item]
+    }
+    return total;
+}
+
+function gradingSystem(scores){
+
+    const finalResult = scores.map((num)=>{
+
+        if(num>=90 && num <=100)return "A";
+        if(num>=80 && num <=89)return "B";
+        if(num>=70 && num <=79)return "C";
+        if(num>=60 && num <=69)return "D";
+        if(num<60)return "F";
+    });
+
+    return finalResult;
+}
+
+function getHealthySnacks(){
+    const shoppingList = [
+        { name: 'Apples', category: 'Fruits', isHealthy: true },
+        { name: 'Potato Chips', category: 'Snacks', isHealthy: false },
+        { name: 'Carrots', category: 'Vegetables', isHealthy: true },
+        { name: 'Chocolate Bars', category: 'Sweets', isHealthy: false },
+        { name: 'Greek Yogurt', category: 'Dairy', isHealthy: true },
+        { name: 'Soda', category: 'Beverages', isHealthy: false }
+    ]
+
+    let healthyItems = []
+
+    for(let item of shoppingList){
+        if(item.isHealthy === true){
+            healthyItems.push(item)
+        }
+    }
+    healthyItems.forEach(healthyItem=>{
+        console.log(healthyItem.name)
+    })
+}
+
+getHealthySnacks();
 
 
-module.exports = {multiply,isGreaterThanTwo,addTwo,isGreaterThanSeventy,addFive,square,distribute,timeOfClass};
+
+module.exports = {multiply,isGreaterThanTwo,addTwo,isGreaterThanSeventy,addFive,square,distribute,timeOfClass,getTotalCost,gradingSystem};
