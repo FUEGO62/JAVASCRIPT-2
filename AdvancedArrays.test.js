@@ -1,5 +1,5 @@
 
-const {multiply,isGreaterThanTwo,addTwo,isGreaterThanSeventy,addFive,square,distribute,timeOfClass,getTotalCost,gradingSystem,filterCostsLessThan100,discountedPrices} = require("./AdvancedArrays")
+const {multiply,isGreaterThanTwo,addTwo,isGreaterThanSeventy,addFive,square,distribute,timeOfClass,getTotalCost,gradingSystem,filterCostsLessThan100,discountedPrices,addOneToArray} = require("./AdvancedArrays")
 
 test("multiply each element by 2",()=>{
     const array = [1,2,3];
@@ -68,4 +68,10 @@ test("discounted prices",()=>{
         { name: "Monitor", originalPrice: 200 ,discountedPrice:180}
     ]
     expect(expected).toEqual(discountedPrices())
+})
+
+test("add one to array",()=>{
+    const array = [-9,9];
+    let result = [-9,8];
+    expect(result).toEqual(addOneToArray(array));
 })

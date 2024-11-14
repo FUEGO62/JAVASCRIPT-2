@@ -4,7 +4,7 @@ function multiply(arr) {
     let newArr = [];
     arr.forEach((num)=>{
         let result = num*2;
-        newArr.push( result);
+        newArr.push(result);
     })
     return newArr;
 }
@@ -95,9 +95,9 @@ function getHealthySnacks(){
             healthyItems.push(item)
         }
     }
-    healthyItems.forEach(healthyItem=>{
-        console.log(healthyItem.name)
-    })
+    //healthyItems.forEach(healthyItem=>{
+    //  console.log(healthyItem.name)
+    //})
 }
 
 getHealthySnacks();
@@ -153,4 +153,38 @@ function discountedPrices(){
     return result;
 }
 
-module.exports = {multiply,isGreaterThanTwo,addTwo,isGreaterThanSeventy,addFive,square,distribute,timeOfClass,getTotalCost,gradingSystem,filterCostsLessThan100,discountedPrices};
+
+function addOneToArray(array) {
+
+    let number = 0;
+    let isNegative = false;
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] < 0 && i != 0) {
+            throw new Error();
+        }
+        if (array[i] < 0) {
+            isNegative = true;
+            array[i] *= -1;
+        }
+        number += array[i] * Math.pow(10, ((array.length - 1) - i));
+    }
+
+    if (isNegative) number -= 1;
+    else number += 1;
+
+    strNumber = String(number);
+
+    array = [];
+
+    for (character of strNumber) {
+        array.push(Number(character));
+    }
+
+    if (isNegative) {
+        array[0] *=-1;
+    }
+    return array;
+}
+
+module.exports = {multiply,isGreaterThanTwo,addTwo,isGreaterThanSeventy,addFive,square,distribute,timeOfClass,getTotalCost,gradingSystem,filterCostsLessThan100,discountedPrices,addOneToArray};
