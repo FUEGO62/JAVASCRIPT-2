@@ -71,7 +71,7 @@ test("discounted prices",()=>{
 })
 
 test("add one to array",()=>{
-    const array = [-9,9];
-    let result = [-9,8];
+    const array = [9,9];
+    let result = [1,0,0];
     expect(result).toEqual(addOneToArray(array));
 })

@@ -97,7 +97,7 @@ function getHealthySnacks(){
     }
     //healthyItems.forEach(healthyItem=>{
     //  console.log(healthyItem.name)
-    //})
+    // })
 }
 
 getHealthySnacks();
@@ -149,42 +149,31 @@ function discountedPrices(){
             result.push(object);
         }
     }
-
     return result;
 }
 
-
 function addOneToArray(array) {
 
-    let number = 0;
-    let isNegative = false;
+    number = ""
+    isNegative = false
 
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] < 0 && i != 0) {
-            throw new Error();
-        }
-        if (array[i] < 0) {
-            isNegative = true;
-            array[i] *= -1;
-        }
-        number += array[i] * Math.pow(10, ((array.length - 1) - i));
+    for(element of array){
+        number += element;
     }
+    array = []
+    number = Number(number);
+    number+=1
 
-    if (isNegative) number -= 1;
-    else number += 1;
-
-    strNumber = String(number);
-
-    array = [];
-
-    for (character of strNumber) {
-        array.push(Number(character));
+    if(number < 0){
+        number *=-1
+        isNegative = true
     }
-
-    if (isNegative) {
-        array[0] *=-1;
+    for(letter of String(number)){
+        array.push(Number(letter));
     }
-    return array;
+    if(isNegative)array[0] *= -1;
+
+    return array
 }
 
 module.exports = {multiply,isGreaterThanTwo,addTwo,isGreaterThanSeventy,addFive,square,distribute,timeOfClass,getTotalCost,gradingSystem,filterCostsLessThan100,discountedPrices,addOneToArray};
